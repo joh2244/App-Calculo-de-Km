@@ -1,262 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap"
-        rel="stylesheet">
-    <style>
-        h2  {
-                font-family: "Orbitron", sans-serif;
-                font-size: 50px;
-                font-weight: 900;
-                color: #00f7ff;
-                text-shadow:
-                    1px 1px 2px rgb(48, 89, 201),
-                    0 0 1em blue,
-                    0 0 0.2em blue;
-            }
-
-        table {
-            margin-top: 20px;
-        }
-
-        table tr {
-            color: black;
-        }
-
-        table td {
-            color: black;
-            padding: 10px;
-        }
-
-
-        table {
-            background-color: white;
-
-        }
-
-        body {
-            font-size: 30px;
-            margin: 0;
-            font-family: "Montserrat", sans-serif;
-            font-size: 25px;
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(19, 19, 194, 1) 34%, rgba(158, 58, 58, 1) 100%);
-
-
-
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .label {
-            margin-right: 20px;
-            color: white;
-        }
-
-        .input-form {
-            width: 300px;
-            height: 30px;
-            font-size: 20px;
-            border-radius: 5px;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-
-        .input {
-            margin-bottom: 15px;
-        }
-
-        button {
-            width: 100px;
-            height: 50px;
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-            border-radius: 10px;
-            color: white;
-            font-weight: 90px;
-            font-family: "Montserrat", sans-serif;
-            font-weight: 700;
-        }
-
-        .margin {
-            width: 600px;
-            margin: 0 auto;
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-            padding: 40px;
-            border-style: solid;
-            border-width: 3px;
-            border-color: white;
-
-        }
-
-        h2 {
-            text-align: center;
-            color: white;
-        }
-
-        .res {
-            color: white;
-        }
-    </style>
-    <title> Calculo de Km</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Calculo de Km</title>
+    
+    
 </head>
 
 <body>
 
-    <div class="margin">
+    <div class="container">
         <h2>Calculo de Km/L</h2>
-        <div class="container">
 
-            <div class="input">
-                <label class="label" for="kmLitro">Km por Litro do Veiculo</label> <br>
-                <input class="input-form" type="number" id="kmLitro" >
-            </div>
-
-
-            <div class="input">
-                <label class="label" for="precoGasolina">Preço da Gasolina </label> <br>
-                <input class="input-form" type="number" id="precoGasolina">
-            </div>
-
-            <div class="input">
-                <label class="label" for="kmTotal">Km Total da Viagem</label> <br>
-                <input class="input-form" type="number" id="kmTotal">
-            </div>
-
-            <p id="alerta"></p>
-
-            <button onclick="Calcule()">Clique</button>
-
-
-            <table border="1">
-                <tbody>
-                    <tr class="1">
-                        <td>Km por Litro do veículo </td>
-                        <td class="res" id="resultado1"></td>
-                    </tr>
-
-                    <tr>
-                        <td>Preço da Gasolina</td>
-                        <td class="res" id="resultado2"></td>
-                    </tr>
-
-                    <tr>
-                        <td>km Total da Viagem</td>
-                        <td class="res" id="resultado3"></td>
-                    </tr>
-
-                    <tr>
-                        <td>Quantidade de Litros Total</td>
-                        <td id="linha1"></td>
-                    </tr>
-                    <tr>
-                        <td>Gasto Total com Gasolina</td>
-                        <td id="linha2"></td>
-                    </tr>
-
-                </tbody>
-            </table>
-
+        <div class="input">
+            <label class="label" for="kmLitro">Km por Litro do Veiculo</label>
+            <input class="input-form" type="number" id="kmLitro">
         </div>
+
+        <div class="input">
+            <label class="label" for="precoGasolina">Preço do Combustível</label>
+            <input class="input-form" type="number" id="precoGasolina">
+        </div>
+
+        <div class="input">
+            <label class="label" for="kmTotal">Km Total da Viagem</label>
+            <input class="input-form" type="number" id="kmTotal">
+        </div>
+
+        <p id="alerta"></p>
+
+        <button onclick="calcule()">Calcular</button>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Km por Litro do veículo</td>
+                    <td id="resultado1" data-label="Km/L do Veículo:"></td>
+                </tr>
+                <tr>
+                    <td>Preço do Combustível</td>
+                    <td id="resultado2" data-label="Preço Combustível:"></td>
+                </tr>
+                <tr>
+                    <td>Km Total da Viagem</td>
+                    <td id="resultado3" data-label="Distância Total:"></td>
+                </tr>
+                <tr>
+                    <td>Quantidade de Litros Total</td>
+                    <td id="linha1" data-label="Litros Necessários:"></td>
+                </tr>
+                <tr>
+                    <td>Gasto Total com Combustível</td>
+                    <td id="linha2" data-label="Custo Total:"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-
-
-    <div id="Resultado"></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <!-- <div id="LitroTotal"></div> -->
-
-    <script>
-        do {
-
-            function Calcule() {
-                var kmLitro = document.getElementById("kmLitro").value;
-                var resultado = document.getElementById("resultado1");
-                resultado.style.color = "black"
-
-
-
-
-                var precoGasolina = document.getElementById("precoGasolina").value;
-                var res = document.getElementById("resultado2");
-                res.style.color = "black"
-
-
-                var kmTotal = document.getElementById("kmTotal").value;
-                var res3 = document.getElementById("resultado3");
-                res3.style.color = "black"
-
-
-                //Calculo para Litros Total
-                var CalculoLitroTotal = kmTotal / kmLitro;
-                var div1 = document.createElement("div");
-                div1.style.color = "black";
-
-                var linha1 = document.getElementById("linha1")
-                linha1.appendChild(div1)
-
-
-
-
-
-
-
-
-                //Calculo para Litros Total
-
-                var CalculoGasolinaTotal = CalculoLitroTotal * precoGasolina;
-
-                var div2 = document.createElement("div");
-                div2.style.color = "black"
-
-                var linha2 = document.getElementById("linha2")
-                linha2.appendChild(div2);
-
-
-
-                if (kmLitro == "" || precoGasolina == "" || kmTotal == "") {
-
-                    var alerta = document.getElementById("alerta");
-                    alerta.innerHTML = "Preencha todos os campos"
-                    alerta.style.color = "white";
-                    alerta.style.backgroundColor = "Black"
-                    alerta.style.padding = "15px"
-                    alerta.style.fontSize = "18px"
-
-                } else {
-
-
-                    resultado.innerHTML = `${kmLitro}km`;
-
-                    res.innerHTML = `R$ ${precoGasolina}`;
-
-                    res3.innerHTML = ` ${kmTotal}/km`;
-
-                    div1.innerHTML = ` ${CalculoLitroTotal} L`;
-
-                    div2.innerHTML = `R$ ${CalculoGasolinaTotal} `;
-
-                }
-            };
-
-        } while (kmLitro == "" || precoGasolina == "" || kmTotal == "");
-
-
-
-    </script>
-
-
 
 </body>
 
 </html>
+
+
