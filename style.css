@@ -1,0 +1,126 @@
+      /* --- ESTILOS GERAIS (Desktop First) --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: white;
+            /* Em telas grandes, centraliza o conteúdo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Usar min-height é melhor que height */
+            margin: 0;
+            padding: 20px 0; /* Adiciona espaço vertical */
+        }
+        .container {
+            background-color:  #7aaefd;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 450px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .input {
+            margin-bottom: 15px;
+        }
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .input-form {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        td:first-child {
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+        #alerta {
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* --- ESTILOS RESPONSIVOS --- */
+        /* Essas regras só aplicam em telas com largura máxima de 600px (celulares) */
+        @media (max-width: 600px) {
+            body {
+                /* No mobile, remove a centralização e deixa o conteúdo fluir do topo */
+                display: block;
+                padding: 0;
+            }
+            .container {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                min-height: 100vh;
+            }
+            h2 {
+                font-size: 1.5em; /* Reduz um pouco o título */
+            }
+
+            /* A Mágica da Tabela Responsiva */
+            /* Esconde a estrutura original da tabela */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            /* Transforma cada linha (tr) em um "card" */
+            tr {
+                border: 1px solid #ccc;
+                margin-bottom: 15px;
+                border-radius: 5px;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%; /* Deixa espaço para o título que vamos adicionar */
+                text-align: right;
+            }
+            td:first-child {
+                display: none; /* Escondemos a primeira célula (o label) */
+            }
+            /* Usamos um pseudo-elemento para recriar o label antes do valor */
+            td:before {
+                content: attr(data-label); /* Pega o texto do atributo 'data-label' */
+                position: absolute;
+                left: 10px;
+                width: calc(50% - 20px);
+                padding-right: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
